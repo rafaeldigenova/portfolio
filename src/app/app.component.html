@@ -1,0 +1,67 @@
+
+@if (isRootPath()) {
+  <main class="main flex flex-col items-center gap-8 height-100 justify-center"
+    [class.fade-out-element]="fadingToSkillset()"
+    [class.fade-in-element]="fadingToCover()">  
+    <header class="flex flex-col items-center justify-center gap-4">
+      <img src="/profilePicture.jpeg" alt="Profile Picture" class="rounded-full w-48 h-48">
+      <span class="text-md font-medium">Rafael Di Genova | Full Stack Engineer .NET C# + Angular</span>
+      <div class="max-w-[500px] flex flex-col gap-2 text-justify font-light mt-4">
+        <p>I'm a Senior Full Stack Engineer with 12+ years of experience building scalable applications using .NET C# and Angular.</p>
+        <p>I've worked with startups, enterprise companies, and U.S.-based remote teams, delivering software across fintech, SaaS, and e-commerce. I enjoy turning complex business requirements into simple, reliable solutions and collaborating with teams to ship high-quality products.</p>
+        <p>I'd love the opportunity to bring that experience to contribute to your team.</p>
+      </div>
+    </header>
+    <nav>
+      <div class="content flex flex-row items-center justify-center gap-4">
+        <button matButton="elevated" (click)="goToRoute('fullstack')">Full Stack Engineer</button>
+        <button matButton="elevated" (click)="goToRoute('gamedev')">Game Developer</button>
+      </div>
+    </nav>
+    <section>
+      <router-outlet />
+    </section>
+  </main>  
+} @else {
+  <main class="main flex-flex-col items-center gap-4 height-100 jusify-start fade-in-element"
+  [class.fade-out-element]="fadingToCover()"
+  [class.fade-in-element]="fadingToSkillset()">
+    <div class="flex flex-row flex-grow height-100">
+      <nav class="flex flex-col p-4 gap-4 items-center justify-start z-index-[10]">
+        <img src="/profilePicture.jpeg" alt="Profile Picture" class="rounded-full w-10 h-10 cursor-pointer hover:scale-110 transition" (click)="goToRoute('/')">
+        <button class="menu-button shadow transition hover:scale-110 cursor-pointer" 
+          [class]="{'selected': isFullStackPath(), 'shadow': !isFullStackPath()}"
+          (click)="goToRoute('fullstack')"><mat-icon>engineering</mat-icon></button>
+        <button class="menu-button shadow transition hover:scale-110 cursor-pointer"
+          [class]="{'selected': isGameDevPath(), 'shadow': !isGameDevPath()}"
+          (click)="goToRoute('gamedev')"><mat-icon>sports_esports</mat-icon></button>
+      </nav>
+      <section class="flex-grow flex overflow-y-auto height-100">
+        <router-outlet />
+      </section>
+    </div>
+  </main>
+
+  <!-- <main class="main flex-flex-col items-center gap-4 height-100 jusify-start fade-in-element"
+  [class.fade-out-element]="fadingToCover()"
+  [class.fade-in-element]="fadingToSkillset()">
+    <header class="flex flex-row items-center justify-start gap-4 p-4 border-b border-gray-300 shadow cursor-pointer" (click)="goToRoute('/')">
+      <img src="/profilePicture.jpeg" alt="Profile Picture" class="rounded-full w-12 h-12">
+      <div class="flex flex-col">
+        <span class="text-md font-medium">Rafael Di Genova </span>
+        <span class="text-xs font-light">Full Stack Engineer .NET C# + Angular</span>
+      </div>
+    </header>
+    <div class="flex flex-row flex-grow height-100">
+      <nav class="flex flex-col border-r border-gray-200 shadow-sm">
+        <button class="cursor-pointer py-4 px-8 hover:bg-gray-200" (click)="goToRoute('fullstack')">Full Stack</button>
+        <button class="cursor-pointer py-4 px-8 hover:bg-gray-200" (click)="goToRoute('gamedev')">Gamedev</button>
+      </nav>
+      <section class="p-8 flex-grow flex">
+        <router-outlet />
+      </section>
+    </div>
+  </main> -->
+}
+
+

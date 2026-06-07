@@ -1,0 +1,21 @@
+<div class="w-[400px] flex flex-col gap-4 p-4 card shadow-sm hover:scale-102 cursor-pointer transition" (click)="openDetails()">
+  <div class="flex flex-row items-start justify-between">
+    <div class="flex flex-col pb-2">
+      <span class="text-sm font-semibold">{{ experience().title }}</span>
+      <span class="text-sm font-light">{{ experience().company }} - {{ experience().location }}</span>
+    </div>
+    <div class="flex flex-row items-center gap-1 pt-1 whitespace-nowrap">
+      <span class="font-light text-xs">{{experience().startDate}}</span>
+      <span class="font-light text-xs">-</span>
+      <span class="font-light text-xs">{{experience().endDate}}</span>
+    </div>
+  </div>
+  <div class="flex flex-grow flex-col gap-2 py-2">
+    <p>{{ experience().summary }}</p>
+  </div>
+  <div class="flex flex-wrap flex-row justify-start gap-2">
+    @for(skill of experience().skills; track skill) {
+      <span class="border border-gray-500 rounded-md py-1 px-2 text-xs">{{ skill }}</span>
+    }
+  </div>
+</div>

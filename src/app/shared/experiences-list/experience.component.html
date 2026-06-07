@@ -1,0 +1,6 @@
+<h2 class="text-lg font-bold pb-4">Experiences</h2>
+<div class="flex flex-wrap flex-row gap-6 ">
+    @for (experience of experiences(); track experience.title) {
+        <app-experience class="flex" [experience]="experience"></app-experience>
+    }
+</div>

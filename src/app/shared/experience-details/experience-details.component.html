@@ -1,0 +1,59 @@
+<div mat-dialog-title class="mat-dialog-title">
+  <div class="flex flex-row items-start justify-between pt-4">
+    <div class="flex flex-col pb-2">
+      <span class="text-lg font-bold">{{ experience.title }}</span>
+      <span class="text-base">{{ experience.company }} - {{ experience.location }}</span>
+    </div>
+    <div class="flex flex-row items-center gap-1 pt-1">
+      <span class="font-light text-xs">{{experience.startDate}}</span>
+      <span class="font-light text-xs">-</span>
+      <span class="font-light text-xs">{{experience.endDate}}</span>
+    </div>
+  </div>
+</div>
+<mat-dialog-content>
+  <div class="flex flex-grow flex-col gap-4 py-2">
+    @if(experience.bulletPoints && experience.bulletPoints!.length > 0) {
+      <div class="flex flex-col">
+        <p class="font-semibold font-small">Main Attributions:</p>
+        <ul class="list-disc pl-4">
+          @for(bulletPoint of experience.bulletPoints; track bulletPoint) {
+            <li class="mt-2"><span class="font-mono font-semibold">{{ bulletPoint }}</span></li>
+          }
+        </ul>
+      </div>
+    }
+
+    @if(experience.carrerProgression && experience.carrerProgression!.length > 0) {
+      <div class="flex flex-col">
+        <p class="font-semibold font-small mb-2">Career Progression:</p>
+        @for(step of experience.carrerProgression; track step.title) {
+          <div class="flex flex-row gap-2 items-center pl-4">
+            <p class="font-mono font-semibold">{{ step.date }}</p>
+            <p>-</p>
+            <p class="flex-grow">{{ step.title }}</p>
+          </div> 
+        }
+      </div>
+    }
+
+    @if(experience.highlights && experience.highlights!.length > 0) {
+      <div class="flex flex-col">
+        <p class="font-semibold font-small">Highlights:</p>
+        <ul class="list-disc pl-4">
+          @for(highlight of experience.highlights; track highlight) {
+            <li class="mt-2"><span class="font-mono font-semibold">{{ highlight }}</span></li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+  <div class="flex flex-wrap flex-row justify-start gap-2 mt-4">
+    @for(skill of experience.skills; track skill) {
+      <span class="border border-gray-500 rounded-md py-1 px-2 text-xs">{{ skill }}</span>
+    }
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton (click)="onClose()" >Close</button>
+</mat-dialog-actions>

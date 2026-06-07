@@ -1,0 +1,32 @@
+<div class="flex flex-grow width-100">
+    <div class="flex flex-col gap-4 p-8">
+    @if (isLoading()) {
+        <div class="p-12">
+            <mat-spinner></mat-spinner>
+        </div>
+    } @else {
+        <h1 class="text-xl font-bold">Full Stack Engineer | .NET C# and Angular</h1>
+        <h2 class="text-lg font-bold">Summary</h2>
+        <div class="flex flex-col gap-2 max-w-[800px] text-justify">
+            <p>Proactive Full Stack Developer with extensive experience in delivering full-cycle software solutions using .NET C#
+                and Angular. Successfully migrated complex databases and improved system performance through strategic planning
+                and execution. Adept at leading projects from conception to completion, while maintaining strong communication
+                with stakeholders to ensure alignment with business goals and help designing technical solutions that matches business
+                expectations.</p>
+            <p>My adaptability and eagerness to learn, led me to deliver a variety of projects in production such as .NET C# APIs,
+                Angular Web Apps, iOS xamarin apps, Java/Kotlin POS app, .NET ERP integration with Shopify and multiple
+                HTML5 games. </p>
+        </div>
+        <h2 class="text-lg font-bold">Core Competencies</h2>
+        <div class="flex flex-col gap-2">
+            <p><span class="font-bold">Architecture:</span> DDD, CQRS, Clean Architecture, Modular Monoliths, Microservices, Event-Driven Systems</p>
+            <p><span class="font-bold">Cloud & DevOps:</span> Azure Functions, Azure Service Bus, Azure Storage, AWS, CI/CD, Infrastructure as Code</p>
+            <p><span class="font-bold">IA Tools:</span> Claude Code, Cursor, GitHub Copilot</p>
+            <p><span class="font-bold">Languages:</span> .NET, .NET Core, C#, TypeScript, Angular, React, HTML/CSS</p>
+            <p><span class="font-bold">Databases:</span> MSSQL, PostgreSQL, MongoDB</p>
+            <p><span class="font-bold">Practices:</span> Agile / Scrum, Automated tests, Code Quality, GIT</p>
+        </div>
+        <app-experiences-list [experiences]="experiences()"></app-experiences-list>
+    }
+    </div>
+</div>
