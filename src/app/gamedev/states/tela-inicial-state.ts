@@ -43,7 +43,7 @@ export class telaInicialState {
         this.enteringShip = true;
         this.elapsedSeconds = 0;
 
-        this.clickableElements.push(new ClickableElement(150, 35, 295, 170, this.starfield.accelerate, this.starfield.stop));
+        this.clickableElements.push(new ClickableElement(150, 35, 295, 170, () => this.starfield.accelerate(), () => this.starfield.stop()));
         this.clickableElements.push(new ClickableElement(180, 725, 160, 160, () => this.starfield.turnLeft(true), () => this.starfield.turnLeft(false)));
         this.clickableElements.push(new ClickableElement(1580, 720, 150, 160, () => this.starfield.turnRight(true), () => this.starfield.turnRight(false)));
         

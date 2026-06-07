@@ -69,9 +69,9 @@ export class starfield {
                 this.ageInSeconds = 0;
             }
         } else if (this.turningLeft) {
-            this.xSpeed = Math.min(((this.ageInSeconds) / 1) * 3, 8);
+            this.xSpeed = Math.min(((this.ageInSeconds) / 1) * 3, 10);
         } else if (this.turningRight) {
-            this.xSpeed = -Math.min(((this.ageInSeconds) / 1) * 3, 8);
+            this.xSpeed = -Math.min(((this.ageInSeconds) / 1) * 3, 10);
         } else if (this.xSpeed > 0) {
             this.xSpeed -= .3;
         } else if (this.xSpeed < 0){
